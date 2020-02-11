@@ -1,21 +1,20 @@
-const container = document.getElementById("container");
-const text = document.getElementById("text");
+const circle = document.querySelector(".circle");
+const text = document.querySelector("#text");
 
 const totalTime = 7500;
 const breathTime = (totalTime / 5) * 2;
 const holdTime = totalTime / 5;
 
-breathAnimation();
-function breathAnimation() {
-	text.innerText = "Breath In!";
-	container.className = "container grow";
+animationControl();
+function animationControl() {
+	text.innerText = "Breath In";
+	circle.classList.add("breathIn");
 	setTimeout(() => {
 		text.innerText = "Hold";
 		setTimeout(() => {
-			text.innerText = "Breathe Out!";
-			container.className = "container shrink";
+			text.innerText = "Breath Out";
+			circle.className = "circle";
 		}, holdTime);
 	}, breathTime);
 }
-
-setInterval(breathAnimation, totalTime);
+setInterval(animationControl, totalTime);
